@@ -32,13 +32,10 @@ public class AccessFBView implements Initializable {
     private ListView<Person> outputList;
     @FXML
     private Button select;
-
     @FXML
     private Button update;
-    
     @FXML
     private Button delete;
-
     @FXML
     private MenuItem username;
 
@@ -61,7 +58,7 @@ public class AccessFBView implements Initializable {
         select.setDisable(true);
         update.setDisable(true);
         delete.setDisable(true);
-        //username.setText(SignIn.currUser.getDisplayName());
+        username.setText(SignIn.currUser.getDisplayName());
     }
 
     @FXML
@@ -88,6 +85,10 @@ public class AccessFBView implements Initializable {
         nameField.clear();
         majorField.clear();
         ageField.clear();
+    }
+    @FXML
+    private void switchToSecondary() throws IOException {
+        App.setRoot("WebContainer.fxml");
     }
 
     public void addData() {
@@ -178,7 +179,6 @@ public class AccessFBView implements Initializable {
         }
     }
     public void selectData(){
-        
         nameField.setText(person.getName());
         majorField.setText(person.getMajor());
         ageField.setText(""+person.getAge());
@@ -186,7 +186,6 @@ public class AccessFBView implements Initializable {
         delete.setDisable(false);
         writeButton.disableProperty().bind(accessDataViewModel.isWritePossibleProperty());
     }
-
     @FXML
     public void handleMouseClick(MouseEvent arg0) {
         nameField.clear();
@@ -197,9 +196,7 @@ public class AccessFBView implements Initializable {
         writeButton.disableProperty().bind(accessDataViewModel.isWritePossibleProperty().not());
         person = outputList.getSelectionModel().getSelectedItem();
     }
-
     public void logOut() throws IOException {
         App.setRoot("SignIn.fxml");
     }
-
 }

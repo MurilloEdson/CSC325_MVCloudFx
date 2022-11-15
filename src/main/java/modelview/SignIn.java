@@ -29,15 +29,16 @@ public class SignIn implements Initializable {
         // TODO
     }    
     public void verifyCredentials() throws IOException, FirebaseAuthException{
-        App.setRoot("AccessFBView.fxml");
-        /*try {
-        String name = userInput.getText();
-        String password = userPassword.getText();
-        currUser = FirebaseAuth.getInstance().getUser(name);
-        System.out.println(currUser.getProviderData());
+        try {
+            String name = userInput.getText();
+            String password = userPassword.getText();
+            currUser = FirebaseAuth.getInstance().getUser(name);
+            App.setRoot("AccessFBView.fxml");
         } catch (FirebaseAuthException ex) {
-        System.err.println("You messed up");
-        }*/
+            System.err.println("Wrong or empty username");
+        }catch (IllegalArgumentException iae){
+            System.err.println("Wrong or empty username");
+        }
     }
     public void toCreateWinodw() throws IOException{
         App.setRoot("NewAccount.fxml");

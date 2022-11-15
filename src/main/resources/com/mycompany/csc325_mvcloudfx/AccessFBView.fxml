@@ -59,6 +59,11 @@
                   </Button>
                   <Button mnemonicParsing="false" onAction="#logOut" text="Log Out">
                      <HBox.margin>
+                        <Insets left="8.0" right="8.0" />
+                     </HBox.margin>
+                  </Button>
+                  <Button mnemonicParsing="false" onAction="#switchToSecondary" text="Switch">
+                     <HBox.margin>
                         <Insets left="8.0" />
                      </HBox.margin>
                   </Button>
